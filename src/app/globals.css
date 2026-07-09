@@ -1,0 +1,267 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --color-brand-blue: #2563eb;
+  --color-brand-blue-dark: #1e40af;
+  --color-brand-blue-soft: #dbeafe;
+  --color-brand-cyan: #06b6d4;
+  --color-brand-black: #050505;
+  --color-brand-graphite: #111827;
+  --color-brand-soft-black: #111827;
+  --color-brand-white: #ffffff;
+  --color-brand-surface: #f8fafc;
+  --color-brand-muted: #4b5563;
+  --color-brand-border: #e5e7eb;
+  background: var(--color-brand-surface);
+  letter-spacing: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--color-brand-surface);
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: #f8fafc;
+  color: var(--color-brand-black);
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  letter-spacing: 0;
+  text-rendering: geometricPrecision;
+}
+
+::selection {
+  background: rgba(37, 99, 235, 0.16);
+  color: var(--color-brand-black);
+}
+
+a {
+  text-decoration: none;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+select option {
+  background: #ffffff;
+  color: var(--color-brand-black);
+}
+
+.site-background {
+  --spot-x: 50vw;
+  --spot-y: 18vh;
+}
+
+.spotlight {
+  background: radial-gradient(
+    520px circle at var(--spot-x) var(--spot-y),
+    rgba(37, 99, 235, 0.028),
+    rgba(6, 182, 212, 0.016) 28%,
+    transparent 62%
+  );
+}
+
+.brand-grid {
+  background-image:
+    linear-gradient(rgba(5, 5, 5, 0.028) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(5, 5, 5, 0.022) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), transparent 78%);
+  opacity: 0.24;
+}
+
+.brand-scanlines {
+  background:
+    repeating-linear-gradient(
+      105deg,
+      transparent 0,
+      transparent 18px,
+      rgba(5, 5, 5, 0.025) 19px,
+      transparent 22px
+    );
+  animation: scanlines 18s linear infinite;
+  opacity: 0.12;
+}
+
+.hero-lines {
+  background:
+    repeating-linear-gradient(
+      90deg,
+      transparent 0,
+      transparent 72px,
+      rgba(5, 5, 5, 0.035) 73px,
+      transparent 74px
+    );
+  mask-image: linear-gradient(to bottom, transparent, #000 18%, #000 64%, transparent);
+  opacity: 0.18;
+}
+
+.tilt-card {
+  transform-style: preserve-3d;
+}
+
+.card-glow {
+  background: radial-gradient(
+    420px circle at var(--card-x, 50%) var(--card-y, 50%),
+    rgba(37, 99, 235, 0.04),
+    rgba(6, 182, 212, 0.018) 32%,
+    transparent 62%
+  );
+}
+
+.underline-hover {
+  position: relative;
+}
+
+.underline-hover::after {
+  position: absolute;
+  right: 0;
+  bottom: -0.2rem;
+  left: 0;
+  height: 2px;
+  transform: scaleX(0);
+  transform-origin: left;
+  border-radius: 999px;
+  background: #ffd60a;
+  box-shadow: 0 4px 12px rgba(255, 214, 10, 0.22);
+  content: "";
+  transition: transform 240ms ease;
+}
+
+.underline-hover:hover::after,
+.underline-hover:focus-visible::after {
+  transform: scaleX(1);
+}
+
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  display: none;
+  pointer-events: none;
+  opacity: 1;
+  color: var(--color-brand-blue);
+  filter: drop-shadow(0 5px 10px rgba(37, 99, 235, 0.16));
+  transition:
+    color 160ms ease,
+    filter 160ms ease,
+    opacity 160ms ease;
+  will-change: transform;
+}
+
+.custom-cursor-icon {
+  display: block;
+  transform-origin: 2px 2px;
+  transition: transform 160ms ease;
+}
+
+.custom-cursor.cursor-interactive {
+  color: var(--color-brand-blue-dark);
+  filter: drop-shadow(0 7px 16px rgba(37, 99, 235, 0.28));
+}
+
+.custom-cursor.cursor-interactive .custom-cursor-icon {
+  transform: scale(1.08);
+}
+
+.custom-cursor.cursor-hidden {
+  opacity: 0;
+}
+
+.custom-cursor.cursor-clicking {
+  opacity: 0;
+  transition: opacity 0ms linear;
+}
+
+.custom-cursor-ripple {
+  position: fixed;
+  z-index: 9999;
+  width: 38px;
+  height: 38px;
+  pointer-events: none;
+  border: none;
+  border-radius: 9999px;
+  background: #ffd60a;
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(0.2);
+  animation: alltech-cursor-solid-click 420ms ease-out forwards;
+}
+
+@media (hover: hover) and (pointer: fine) and (min-width: 768px) {
+  .custom-cursor {
+    display: block;
+  }
+
+  html.custom-cursor-enabled body,
+  html.custom-cursor-enabled a,
+  html.custom-cursor-enabled button,
+  html.custom-cursor-enabled [role="button"],
+  html.custom-cursor-enabled [data-cursor="hover"],
+  html.custom-cursor-enabled [data-cursor="interactive"],
+  html.custom-cursor-enabled [data-cursor="card"] {
+    cursor: none;
+  }
+
+  html.custom-cursor-enabled input,
+  html.custom-cursor-enabled textarea,
+  html.custom-cursor-enabled select {
+    cursor: text;
+  }
+}
+
+@keyframes scanlines {
+  from {
+    transform: translate3d(-4%, 0, 0);
+  }
+
+  to {
+    transform: translate3d(4%, 0, 0);
+  }
+}
+
+@keyframes alltech-cursor-solid-click {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(0.2);
+  }
+
+  75% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1.05);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.001ms !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
