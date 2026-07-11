@@ -12,43 +12,43 @@ const developmentAreas: Array<{
   icon: SolutionIcon;
 }> = [
   {
-    title: "Aplicacoes Web",
-    text: "Plataformas, portais, dashboards e sistemas internos para operacoes digitais.",
+    title: "Aplicações Web",
+    text: "Plataformas, portais, dashboards e sistemas internos para operações digitais.",
     icon: "web",
   },
   {
     title: "Aplicativos Mobile",
-    text: "Apps para campo, atendimento, gestao, vendas e produtos digitais.",
+    text: "Apps para campo, atendimento, gestão, vendas e produtos digitais.",
     icon: "mobile",
   },
   {
-    title: "Inteligencia Artificial",
-    text: "Assistentes, analise, RAG, classificacao e automacoes inteligentes.",
+    title: "Inteligência Artificial",
+    text: "Assistentes, análise, RAG, classificação e automações inteligentes.",
     icon: "ai",
   },
   {
-    title: "Visao Computacional",
-    text: "Analise de imagem e video, reconhecimento e indicadores visuais.",
+    title: "Visão Computacional",
+    text: "Análise de imagem e vídeo, reconhecimento e indicadores visuais.",
     icon: "vision",
   },
   {
-    title: "Automacoes RPA",
-    text: "Robos para rotinas repetitivas, planilhas, relatorios e sistemas legados.",
+    title: "Automações RPA",
+    text: "Robôs para rotinas repetitivas, planilhas, relatórios e sistemas legados.",
     icon: "rpa",
   },
   {
-    title: "Integracoes e APIs",
-    text: "Conexoes entre sistemas, ERPs, CRMs, WhatsApp, bancos e servicos externos.",
+    title: "Integrações e APIs",
+    text: "Conexões entre sistemas, ERPs, CRMs, WhatsApp, bancos e serviços externos.",
     icon: "api",
   },
   {
     title: "Cloud AWS",
-    text: "Arquitetura, deploy, containers, bancos, monitoramento e evolucao.",
+    text: "Arquitetura, deploy, containers, bancos, monitoramento e evolução.",
     icon: "cloud",
   },
   {
-    title: "Dashboards e Relatorios",
-    text: "Indicadores executivos e operacionais para decisoes mais rapidas.",
+    title: "Dashboards e Relatórios",
+    text: "Indicadores executivos e operacionais para decisões mais rápidas.",
     icon: "dashboard",
   },
 ];
@@ -75,12 +75,12 @@ const stack = [
 ];
 
 const process = [
-  "Diagnostico",
+  "Diagnóstico",
   "Arquitetura",
   "Desenvolvimento",
-  "Integracao",
+  "Integração",
   "Deploy",
-  "Evolucao",
+  "Evolução",
 ];
 
 export default function Home() {
@@ -92,9 +92,9 @@ export default function Home() {
         <div className="mx-auto max-w-7xl">
           <div className="mb-10 flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
             <SectionHeader
-              description="Cases construidos para operacao real, com engenharia, produto e tecnologia trabalhando no mesmo fluxo."
+              description="Cases construídos para operação real, com engenharia, produto e tecnologia trabalhando no mesmo fluxo."
               eyebrow="Trabalhos selecionados"
-              title="Cases com presenca de produto, engenharia e operacao."
+              title="Cases com presença de produto, engenharia e operação."
             />
             <MagneticButton href="/projects" variant="secondary">
               Ver todos
@@ -112,9 +112,9 @@ export default function Home() {
       <section className="bg-brand-soft/70 px-4 py-20 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <SectionHeader
-            description="Do primeiro diagnostico ao sistema em producao, criamos solucoes sob medida para tecnologia virar operacao."
-            eyebrow="Solucoes que construimos"
-            title="Web, mobile, IA, automacao e cloud no mesmo padrao de entrega."
+            description="Do primeiro diagnóstico ao sistema em produção, criamos soluções sob medida para tecnologia virar operação."
+            eyebrow="Soluções que construímos"
+            title="Web, mobile, IA, automação e cloud no mesmo padrão de entrega."
           />
           <div className="mt-9 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {developmentAreas.map((area, index) => (
@@ -135,7 +135,7 @@ export default function Home() {
           <SectionHeader
             description="Um caminho objetivo para sair de processos manuais e chegar a plataformas operacionais."
             eyebrow="Como tiramos do papel"
-            title="Da descoberta a evolucao continua."
+            title="Da descoberta à evolução contínua."
           />
           <div className="mt-10 grid gap-4 md:grid-cols-3 xl:grid-cols-6">
             {process.map((step, index) => (
@@ -157,7 +157,7 @@ export default function Home() {
           <Reveal>
             <div className="rounded-lg border border-neutral-200/80 bg-white p-5 shadow-[0_12px_36px_rgba(15,23,42,0.05)] md:p-7">
               <SectionHeader
-                description="Ferramentas modernas para construir produtos rapidos, escalaveis, integraveis e prontos para evolucao."
+                description="Ferramentas modernas para construir produtos rápidos, escaláveis, integráveis e prontos para evolução."
                 eyebrow="Stack"
                 title="Tecnologias usadas para entregar sistemas reais."
               />
@@ -180,15 +180,15 @@ export default function Home() {
         <Reveal>
           <div className="mx-auto max-w-5xl rounded-lg border border-neutral-200/80 bg-white p-6 text-center shadow-[0_14px_40px_rgba(15,23,42,0.06)] md:p-8">
             <h2 className="text-3xl font-semibold leading-tight text-brand-black md:text-5xl">
-              Tem uma operacao que precisa virar sistema?
+              Tem uma operação que precisa virar sistema?
             </h2>
             <p className="mx-auto mt-5 max-w-3xl text-base leading-8 text-neutral-600 md:text-lg">
               Transformamos processos manuais, planilhas e ideias em plataformas
-              digitais reais, escalaveis e prontas para operacao.
+              digitais reais, escaláveis e prontas para operação.
             </p>
             <div className="mt-8">
               <MagneticButton href="/contact" size="lg">
-                Comecar conversa
+                Começar conversa
               </MagneticButton>
             </div>
           </div>

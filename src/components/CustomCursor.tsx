@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 
 const interactiveSelector =
-  "a, button, [role='button'], [data-cursor='hover'], [data-cursor='interactive'], [data-cursor='card']";
+  "a, button, input, select, textarea, label, summary, [role='button'], [onclick], .cursor-pointer, [data-cursor='hover'], [data-cursor='interactive'], [data-cursor='card']";
 
 type Ripple = {
   id: number;
@@ -24,7 +24,7 @@ export function CustomCursor() {
       "(prefers-reduced-motion: reduce)",
     ).matches;
 
-    if (!supportsCursor || shouldReduceMotion) {
+    if (!supportsCursor) {
       return;
     }
 
@@ -90,8 +90,8 @@ export function CustomCursor() {
     }
 
     function render() {
-      cursorX += (mouseX - cursorX) * 0.42;
-      cursorY += (mouseY - cursorY) * 0.42;
+      cursorX = shouldReduceMotion ? mouseX : cursorX + (mouseX - cursorX) * 0.42;
+      cursorY = shouldReduceMotion ? mouseY : cursorY + (mouseY - cursorY) * 0.42;
 
       cursorElement.style.transform = `translate3d(${cursorX}px, ${cursorY}px, 0) translate(-2px, -2px)`;
       animationFrame = window.requestAnimationFrame(render);

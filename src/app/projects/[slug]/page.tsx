@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { ArrowLeft, CheckCircle2 } from "lucide-react";
 
 import { MagneticButton } from "@/components/MagneticButton";
+import { ProjectLogo } from "@/components/ProjectLogo";
 import { Reveal } from "@/components/Reveal";
 import { getProjectBySlug, projects } from "@/data/projects";
 
@@ -27,7 +28,7 @@ export async function generateMetadata({
 
   if (!project) {
     return {
-      title: "Projeto nao encontrado",
+      title: "Projeto não encontrado",
     };
   }
 
@@ -47,11 +48,11 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
   return (
     <>
-      <section className="bg-white px-4 pb-20 pt-32 sm:px-6 lg:px-8">
+      <section className="bg-white px-4 pb-20 pt-28 sm:px-6 md:pt-32 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <Reveal>
             <Link
-              className="underline-hover mb-12 inline-flex items-center gap-2 text-sm font-semibold text-neutral-600 transition-colors duration-300 hover:text-brand-blue"
+              className="underline-hover mb-10 inline-flex items-center gap-2 text-sm font-semibold text-neutral-600 transition-colors duration-300 hover:text-brand-blue"
               data-cursor="hover"
               href="/projects"
             >
@@ -60,13 +61,22 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             </Link>
           </Reveal>
 
-          <div className="grid gap-12 lg:grid-cols-[0.72fr_0.28fr] lg:items-end">
+          <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_20rem] lg:items-start">
             <Reveal>
               <div>
+                {project.logo ? (
+                  <ProjectLogo
+                    className="mb-7"
+                    logo={project.logo}
+                    preload
+                    prominent={project.slug === "shomer"}
+                    variant="detail"
+                  />
+                ) : null}
                 <p className="text-xs font-semibold uppercase tracking-[0.22em] text-brand-blue">
                   {project.category}
                 </p>
-                <h1 className="mt-6 max-w-5xl text-5xl font-semibold leading-[0.98] text-brand-black md:text-7xl lg:text-8xl">
+                <h1 className="mt-5 max-w-5xl text-5xl font-semibold leading-[0.98] text-brand-black md:text-6xl lg:text-7xl">
                   {project.name}
                 </h1>
                 <p className="mt-8 max-w-3xl text-lg leading-9 text-neutral-600">
@@ -76,29 +86,19 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             </Reveal>
 
             <Reveal delay={0.08}>
-              <aside className="rounded-lg border border-neutral-200/80 bg-white p-5 shadow-[0_10px_30px_rgba(15,23,42,0.04)]">
-                <div className="border-b border-neutral-200 pb-4">
-                  <p className="text-xs font-semibold uppercase tracking-[0.16em] text-neutral-500">
-                    Status
-                  </p>
-                  <p className="mt-2 text-xl font-semibold text-brand-black">
-                    {project.status}
-                  </p>
-                </div>
-                <div className="pt-4">
-                  <p className="text-xs font-semibold uppercase tracking-[0.16em] text-neutral-500">
-                    Stack principal
-                  </p>
-                  <div className="mt-3 flex flex-wrap gap-2">
-                    {project.stack.slice(0, 4).map((item) => (
-                      <span
-                        className="rounded-full border border-neutral-200 bg-neutral-50 px-3 py-1.5 text-xs font-medium text-neutral-600"
-                        key={item}
-                      >
-                        {item}
-                      </span>
-                    ))}
-                  </div>
+              <aside className="rounded-lg border border-neutral-200/80 bg-neutral-50/70 p-5 shadow-[0_10px_30px_rgba(15,23,42,0.04)] lg:mt-16">
+                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-neutral-500">
+                  Stack principal
+                </p>
+                <div className="mt-3 flex flex-wrap gap-2">
+                  {project.stack.slice(0, 4).map((item) => (
+                    <span
+                      className="rounded-full border border-neutral-200 bg-neutral-50 px-3 py-1.5 text-xs font-medium text-neutral-600"
+                      key={item}
+                    >
+                      {item}
+                    </span>
+                  ))}
                 </div>
               </aside>
             </Reveal>
@@ -117,9 +117,9 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           </Reveal>
           <Reveal delay={0.06}>
             <article className="h-full rounded-lg border border-neutral-200/80 bg-white p-7 shadow-[0_10px_30px_rgba(15,23,42,0.04)] md:p-8">
-              <p className="text-sm font-semibold text-brand-blue">02 Solucao</p>
+              <p className="text-sm font-semibold text-brand-blue">02 Solução</p>
               <h2 className="mt-5 text-3xl font-semibold text-brand-black">
-                A resposta tecnica
+                A resposta técnica
               </h2>
               <p className="mt-5 text-base leading-8 text-neutral-600">{project.solution}</p>
             </article>
@@ -184,12 +184,12 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 Quer construir algo com essa profundidade?
               </h2>
               <p className="mt-4 max-w-2xl text-sm leading-7 text-neutral-600">
-                Podemos transformar uma operacao manual, atendimento, rotina de campo
-                ou processo critico em uma plataforma sob medida.
+                Podemos transformar uma operação manual, atendimento, rotina de campo
+                ou processo crítico em uma plataforma sob medida.
               </p>
             </div>
             <MagneticButton href="/contact" size="lg">
-              Comecar conversa
+              Começar conversa
             </MagneticButton>
           </div>
         </Reveal>

@@ -1,4 +1,5 @@
 import { ArrowUpRight } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 
 const footerLinks = [
@@ -14,9 +15,7 @@ export function Footer() {
       <div className="mx-auto grid max-w-7xl gap-8 px-4 py-10 sm:px-6 md:grid-cols-[1.2fr_0.8fr] lg:px-8">
         <div>
           <Link className="inline-flex items-center gap-3" data-cursor="hover" href="/">
-            <span className="flex h-10 w-10 items-center justify-center rounded-lg border border-brand-cyan/45 bg-white/[0.06] text-sm font-bold text-white">
-              AT
-            </span>
+            <Image alt="" aria-hidden="true" height={40} src="/logo-mark.svg" width={40} />
             <span>
               <span className="block font-semibold text-white">Alltech</span>
               <span className="block text-sm text-neutral-400">Engenharia digital sob medida</span>

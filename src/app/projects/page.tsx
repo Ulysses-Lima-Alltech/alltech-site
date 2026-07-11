@@ -8,7 +8,7 @@ import { projects } from "@/data/projects";
 export const metadata: Metadata = {
   title: "Projetos",
   description:
-    "Cases de tecnologia, IA, automacao, web, mobile, cloud, visao computacional e RPA da Alltech.",
+    "Cases de tecnologia, IA, automação, web, mobile, cloud, visão computacional e RPA da Alltech.",
 };
 
 export default function ProjectsPage() {
@@ -17,9 +17,9 @@ export default function ProjectsPage() {
       <div className="mx-auto max-w-7xl">
         <Reveal>
           <SectionHeader
-            description="Um panorama dos sistemas, plataformas e prototipos criados para resolver problemas reais de operacao, atendimento, gestao e analise."
+            description="Um panorama dos sistemas, plataformas e protótipos criados para resolver problemas reais de operação, atendimento, gestão e análise."
             eyebrow="Work / Cases"
-            title="Cases construidos com engenharia aplicada ao negocio."
+            title="Cases construídos com engenharia aplicada ao negócio."
           />
         </Reveal>
 
