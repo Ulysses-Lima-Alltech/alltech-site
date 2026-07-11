@@ -28,7 +28,7 @@ export function Hero() {
 
         return (
           <section
-            className="relative overflow-x-clip px-4 pb-20 pt-24 sm:px-6 md:pb-24 md:pt-28 lg:px-8 lg:pt-32"
+            className="hero-section relative overflow-x-clip px-5 pb-20 sm:px-6 lg:px-8"
             data-hero-phase={phase}
           >
             <div className="hero-lines absolute inset-x-0 bottom-0 top-20" aria-hidden="true" />
@@ -39,8 +39,8 @@ export function Hero() {
               data-hero-intro-center
             />
 
-            <div className="relative z-10 mx-auto w-full max-w-7xl">
-              <div className="relative grid items-center gap-10 lg:grid-cols-[minmax(0,1.35fr)_minmax(380px,0.65fr)] lg:gap-10 xl:grid-cols-[minmax(0,1.35fr)_minmax(420px,0.65fr)] xl:gap-12">
+            <div className="relative z-10 mx-auto w-full max-w-[1488px]">
+              <div className="relative grid min-w-0 items-center gap-6 sm:gap-10 lg:grid-cols-[minmax(0,1.25fr)_minmax(320px,0.75fr)] lg:gap-10 xl:gap-12">
                 <span
                   ref={journeyOriginRef}
                   aria-hidden="true"
@@ -51,24 +51,23 @@ export function Hero() {
                 <motion.div
                   animate={finalVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 36 }}
                   aria-hidden={!finalVisible}
-                  className={`order-2 lg:order-1 ${finalVisible ? "" : "pointer-events-none"}`}
+                  className={`hero-content order-2 min-w-0 lg:order-1 ${finalVisible ? "" : "pointer-events-none"}`}
                   data-hero-content
                   initial={false}
                   style={{ visibility: finalVisible ? "visible" : "hidden" }}
                   transition={finalTransition}
                 >
-                  <h1 className="max-w-5xl text-5xl font-semibold leading-[1.01] text-brand-black sm:text-6xl lg:text-[4rem] xl:text-[4.25rem] min-[1400px]:text-[4.5rem]">
-                    <span className="block">Da plataforma pronta ao</span>
-                    <span className="block">projeto sob medida</span>
-                    <span className="mt-2 block text-brand-blue">automação e IA reais.</span>
+                  <h1 className="hero-title max-w-[900px] font-semibold text-brand-black">
+                    <span>Da plataforma pronta ao projeto sob medida </span>
+                    <span className="text-brand-blue">automação e IA reais.</span>
                   </h1>
 
-                  <p className="mt-7 max-w-2xl text-base leading-8 text-neutral-600 md:text-lg md:leading-8">
+                  <p className="hero-subtitle max-w-[680px] text-base leading-8 text-neutral-600 md:text-lg md:leading-8">
                     Da implantação imediata ao desenvolvimento sob medida, entregamos
                     tecnologia adequada ao momento e à necessidade de cada cliente.
                   </p>
 
-                  <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+                  <div className="hero-actions flex flex-col gap-3 sm:flex-row">
                     <MagneticButton href="/projects" size="lg">
                       Ver projetos
                     </MagneticButton>
@@ -78,9 +77,9 @@ export function Hero() {
                   </div>
                 </motion.div>
 
-                <div className="order-1 flex min-h-64 items-center justify-center lg:order-2 lg:min-h-[25rem]">
+                <div className="hero-logo-stage order-1 flex min-h-64 min-w-0 items-center justify-center lg:order-2">
                   <div
-                    className="relative w-full max-w-[520px] lg:w-[clamp(390px,35vw,520px)]"
+                    className="relative w-full max-w-[520px]"
                     data-hero-logo-target
                   >
                     <span
