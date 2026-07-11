@@ -25,9 +25,14 @@ export function ProjectsExplorer({ projects }: ProjectsExplorerProps) {
 
   return (
     <div>
-      <div className="mb-8 flex max-w-full items-center gap-2 overflow-x-auto rounded-full border border-neutral-200/80 bg-white p-2 shadow-[0_8px_24px_rgba(15,23,42,0.04)]">
+      <div
+        aria-label="Filtrar projetos"
+        className="mb-8 flex max-w-full items-center gap-2 overflow-x-auto rounded-full border border-neutral-200/80 bg-white p-2 shadow-[0_8px_24px_rgba(15,23,42,0.04)]"
+        role="group"
+      >
         {projectFilters.map((filter) => (
           <button
+            aria-pressed={activeFilter === filter}
             className={cn(
               "shrink-0 rounded-md px-3 py-2 text-sm font-semibold transition-colors duration-300",
               "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-blue",
@@ -47,7 +52,11 @@ export function ProjectsExplorer({ projects }: ProjectsExplorerProps) {
 
       <div className="grid gap-5 md:grid-cols-2">
         {visibleProjects.map((project, index) => (
-          <ProjectCard index={index} key={project.slug} project={project} />
+          <ProjectCard
+            index={index}
+            key={project.slug}
+            project={project}
+          />
         ))}
       </div>
     </div>

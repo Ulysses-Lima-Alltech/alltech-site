@@ -5,12 +5,38 @@ import type { FormEvent } from "react";
 
 import { MagneticButton } from "@/components/MagneticButton";
 
+const WHATSAPP_NUMBER = "5511999999999"; // TROCAR pelo número real
+const CONTACT_EMAIL = "contato@alltechbr.com.br"; // TROCAR pelo e-mail real
+
 const fieldClassName =
   "min-h-12 w-full rounded-lg border border-neutral-300 bg-white px-4 py-3 text-sm text-brand-black outline-none transition-colors duration-300 placeholder:text-neutral-400 focus:border-brand-blue focus:bg-white focus:ring-4 focus:ring-brand-blue/10";
 
 export function ContactForm() {
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    const formData = new FormData(event.currentTarget);
+    const name = String(formData.get("name") ?? "");
+    const company = String(formData.get("company") ?? "");
+    const email = String(formData.get("email") ?? "");
+    const whatsapp = String(formData.get("whatsapp") ?? "");
+    const projectType = String(formData.get("projectType") ?? "");
+    const message = String(formData.get("message") ?? "");
+    const subject = encodeURIComponent(`Novo contato pelo site - ${name}`);
+    const body = encodeURIComponent(
+      [
+        `Nome: ${name}`,
+        `Empresa: ${company || "Não informada"}`,
+        `E-mail: ${email}`,
+        `WhatsApp: ${whatsapp || "Não informado"}`,
+        `Tipo de projeto: ${projectType}`,
+        "",
+        "Mensagem:",
+        message,
+      ].join("\n"),
+    );
+
+    // TODO: substituir por uma chamada de API real (Resend, Formspree, endpoint próprio etc.).
+    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
   }
 
   return (
@@ -72,22 +98,24 @@ export function ContactForm() {
         <MagneticButton icon="send" size="lg" type="submit">
           Enviar mensagem
         </MagneticButton>
-        <button
+        <a
           className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg border border-neutral-300 bg-white px-5 py-3 text-sm font-semibold text-neutral-800 shadow-sm transition-colors duration-300 hover:border-brand-blue/35 hover:bg-neutral-50"
           data-cursor="hover"
-          type="button"
+          href={`https://wa.me/${WHATSAPP_NUMBER}`}
+          rel="noreferrer"
+          target="_blank"
         >
           <MessageCircle aria-hidden="true" className="h-4 w-4" />
           WhatsApp
-        </button>
-        <button
+        </a>
+        <a
           className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg border border-neutral-300 bg-white px-5 py-3 text-sm font-semibold text-neutral-800 shadow-sm transition-colors duration-300 hover:border-brand-blue/35 hover:bg-neutral-50"
           data-cursor="hover"
-          type="button"
+          href={`mailto:${CONTACT_EMAIL}`}
         >
           <Mail aria-hidden="true" className="h-4 w-4" />
           E-mail
-        </button>
+        </a>
       </div>
     </form>
   );

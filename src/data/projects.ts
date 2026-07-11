@@ -1,4 +1,4 @@
-export type ProjectStatus = "Produção" | "MVP" | "Protótipo" | "Acadêmico";
+export type ProjectStatus = "Produção" | "MVP" | "Protótipo";
 
 export type Project = {
   name: string;
@@ -11,14 +11,20 @@ export type Project = {
   features: string[];
   stack: string[];
   impact: string;
+  logo?: {
+    alt: string;
+    height: number;
+    src: string;
+    width: number;
+  };
   featured?: boolean;
   accent: "blue" | "blueDark" | "neutral" | "black" | "cyan";
 };
 
 export const projects: Project[] = [
   {
-    name: "DS Control",
-    slug: "ds-control",
+    name: "iControl",
+    slug: "icontrol",
     category: "AgroTech / Operação",
     status: "Produção",
     summary:
@@ -48,16 +54,22 @@ export const projects: Project[] = [
     ],
     impact:
       "Centralização da operação agrícola, redução de controles manuais e maior rastreabilidade das aplicações.",
+    logo: {
+      alt: "Logo do iControl",
+      height: 464,
+      src: "/assets/logos/icontrol-logo.png",
+      width: 1166,
+    },
     featured: true,
     accent: "blue",
   },
   {
-    name: "NETIV / Ana",
-    slug: "netiv-ana",
+    name: "Convera",
+    slug: "convera",
     category: "IA Conversacional / Imobiliário",
     status: "Produção",
     summary:
-      "Plataforma de atendimento inteligente via WhatsApp para leads imobiliários, com IA conversacional, funil, base de conhecimento e handoff para corretores.",
+      "Convera é uma plataforma de atendimento inteligente via WhatsApp para leads imobiliários, com IA conversacional, funil, base de conhecimento e handoff comercial.",
     problem:
       "Leads imobiliários chegam por diferentes canais e precisam de atendimento rápido, padronizado e alinhado às regras comerciais.",
     solution:
@@ -82,6 +94,12 @@ export const projects: Project[] = [
     ],
     impact:
       "Atendimento mais rápido, padronização comercial e melhor organização dos leads imobiliários.",
+    logo: {
+      alt: "Logo da Convera",
+      height: 530,
+      src: "/assets/logos/convera-logo.png",
+      width: 1804,
+    },
     featured: true,
     accent: "blueDark",
   },
@@ -107,6 +125,12 @@ export const projects: Project[] = [
     stack: ["Python", "OpenCV", "MediaPipe", "YOLO", "Whisper", "IA", "React"],
     impact:
       "Maior visibilidade sobre engajamento em sala e apoio à melhoria pedagógica.",
+    logo: {
+      alt: "Logo da UMMIA",
+      height: 295,
+      src: "/assets/logos/ummia-logo.png",
+      width: 1383,
+    },
     featured: true,
     accent: "neutral",
   },
@@ -131,6 +155,12 @@ export const projects: Project[] = [
     stack: ["Python", "IA", "Visão Computacional", "Dashboards", "Relatórios"],
     impact:
       "Mais controle operacional, indicadores visuais e apoio à gestão de produtividade.",
+    logo: {
+      alt: "Logo da ATHENA",
+      height: 312,
+      src: "/assets/logos/athena-logo.png",
+      width: 1539,
+    },
     featured: true,
     accent: "black",
   },
@@ -155,6 +185,12 @@ export const projects: Project[] = [
     stack: ["Python", "Visão Computacional", "Analytics", "Dashboard"],
     impact:
       "Mais inteligência sobre fluxo, atendimento e performance de lojas físicas.",
+    logo: {
+      alt: "SHOMER",
+      height: 400,
+      src: "/assets/logos/shomer-logo.svg",
+      width: 1120,
+    },
     accent: "cyan",
   },
   {
@@ -180,39 +216,6 @@ export const projects: Project[] = [
     impact: "Validação biométrica mais segura e automatizada.",
     accent: "blueDark",
   },
-  {
-    name: "ABP4",
-    slug: "abp4-dispenser-medicamentos",
-    category: "IoT / Saúde / Acadêmico",
-    status: "Acadêmico",
-    summary:
-      "Dispenser automático de medicamentos com frontend, backend, banco de dados, MQTT e ESP32.",
-    problem:
-      "Pessoas podem esquecer horários de medicamentos e precisam de apoio para controle de doses.",
-    solution:
-      "Sistema IoT com dispenser automatizado, controle via aplicação, comunicação MQTT e backend integrado.",
-    features: [
-      "Frontend web",
-      "Backend API",
-      "Banco de dados",
-      "Comunicação MQTT",
-      "Integração com ESP32",
-      "Controle de horários",
-    ],
-    stack: [
-      "React",
-      "Vite",
-      "Express",
-      "TypeScript",
-      "PostgreSQL",
-      "Prisma",
-      "MQTT",
-      "ESP32",
-    ],
-    impact:
-      "Apoio ao controle de medicamentos e automação de uma rotina crítica.",
-    accent: "blue",
-  },
 ];
 
 export const featuredProjects = projects.filter((project) => project.featured);
@@ -224,7 +227,6 @@ export const projectFilters = [
   "Operação",
   "Visão Computacional",
   "Web/Mobile",
-  "IoT",
 ] as const;
 
 export type ProjectFilter = (typeof projectFilters)[number];

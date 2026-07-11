@@ -2,6 +2,7 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -44,16 +45,11 @@ export function Navbar() {
       <nav className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link
           aria-label="Alltech Home"
-          className="group flex items-center gap-3"
+          className="relative inline-flex h-10 w-10 shrink-0 items-center rounded-full outline-none focus-visible:ring-2 focus-visible:ring-brand-blue focus-visible:ring-offset-2"
           data-cursor="hover"
           href="/"
         >
-          <span className="flex h-10 w-10 items-center justify-center rounded-lg border border-brand-blue/25 bg-white text-sm font-bold text-brand-blue shadow-sm transition-colors duration-300 group-hover:border-brand-cyan/45 group-hover:bg-brand-blueSoft/35">
-            AT
-          </span>
-          <span className="leading-tight">
-            <span className="block text-sm font-semibold text-brand-black">Alltech</span>
-          </span>
+          <Image alt="Alltech" height={40} src="/logo-mark.svg" width={40} />
         </Link>
 
         <div className="hidden items-center gap-1 md:flex">

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>ALL TECH - Animação da logo (salto)</title>
+<style>
+  html, body {
+    margin: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+  }
+  .stage {
+    width: 100%;
+    max-width: 640px;
+  }
+
+  .scene { animation: sceneFade 5.6s ease-in-out infinite; }
+  .ball  { animation: ballMove 5.6s infinite; transform-origin: 180px 205px; }
+  .tri   { animation: triFade 5.6s ease-in-out infinite; }
+  .tech  { animation: techFade 5.6s ease-in-out infinite; }
+  .allw  { animation: allFade 5.6s ease-in-out infinite; }
+  .tag   { animation: tagFade 5.6s ease-in-out infinite; }
+
+  @keyframes sceneFade {
+    0%   { opacity: 0; }
+    4%   { opacity: 1; }
+    90%  { opacity: 1; }
+    100% { opacity: 0; }
+  }
+
+  @keyframes ballMove {
+    0%, 10%  { transform: translate(0, 0) scale(1); animation-timing-function: ease-in-out; }
+    18%      { transform: translate(0, 0) scale(0.14); animation-timing-function: ease-out; }
+    28%      { transform: translate(62px, -58px) scale(0.14); animation-timing-function: ease-in; }
+    34%      { transform: translate(125px, 0) scale(0.17, 0.10); animation-timing-function: ease-out; }
+    37%      { transform: translate(125px, 0) scale(0.14); animation-timing-function: ease-out; }
+    46%      { transform: translate(187px, -58px) scale(0.14); animation-timing-function: ease-in; }
+    52%      { transform: translate(250px, 0) scale(0.17, 0.10); animation-timing-function: ease-out; }
+    56%      { transform: translate(250px, 0) scale(1); animation-timing-function: ease-in-out; }
+    85%      { transform: translate(250px, 0) scale(1); }
+    100%     { transform: translate(0, 0) scale(1); }
+  }
+
+  @keyframes triFade {
+    0%, 10%  { opacity: 1; }
+    18%, 100%{ opacity: 0; }
+  }
+  @keyframes techFade {
+    0%, 55%  { opacity: 0; }
+    65%, 85% { opacity: 1; }
+    95%, 100%{ opacity: 0; }
+  }
+  @keyframes allFade {
+    0%, 55%  { opacity: 0; }
+    65%, 85% { opacity: 1; }
+    95%, 100%{ opacity: 0; }
+  }
+  @keyframes tagFade {
+    0%, 60%  { opacity: 0; }
+    70%, 85% { opacity: 1; }
+    95%, 100%{ opacity: 0; }
+  }
+</style>
+</head>
+<body>
+
+<svg class="stage" viewBox="0 0 640 440" xmlns="http://www.w3.org/2000/svg" role="img">
+  <title>Animação de marca ALL TECH: favicon salta e vira a logo completa</title>
+  <desc>O ícone do favicon encolhe até virar uma bolinha preta, que pula em dois saltos até a direita da tela e se expande, revelando a logo completa ALL TECH com slogan.</desc>
+
+  <g class="scene">
+    <g class="ball">
+      <circle cx="180" cy="205" r="105" fill="#000000"/>
+      <g class="tri">
+        <line x1="180" y1="165" x2="145" y2="238" stroke="#ffffff" stroke-width="12" stroke-linecap="round"/>
+        <line x1="180" y1="165" x2="215" y2="238" stroke="#ffffff" stroke-width="12" stroke-linecap="round"/>
+        <line x1="145" y1="238" x2="215" y2="238" stroke="#ffffff" stroke-width="12" stroke-linecap="round"/>
+        <circle cx="180" cy="165" r="12" fill="#ffffff"/>
+        <circle cx="145" cy="238" r="12" fill="#ffffff"/>
+        <circle cx="215" cy="238" r="12" fill="#ffffff"/>
+      </g>
+    </g>
+
+    <text class="tech" x="430" y="228" text-anchor="middle" font-family="Arial, sans-serif" font-weight="700" font-size="60" fill="#ffffff">TECH</text>
+    <text class="allw" x="310" y="228" text-anchor="end" font-family="Arial, sans-serif" font-weight="700" font-size="66" fill="#000000">ALL</text>
+
+    <g class="tag">
+      <text x="320" y="352" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#c7c7c7">Desafiando a Computação</text>
+      <text x="320" y="378" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#c7c7c7">Inteligente</text>
+    </g>
+  </g>
+</svg>
+
+</body>
+</html>
