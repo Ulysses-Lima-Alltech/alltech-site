@@ -34,6 +34,7 @@ export default function Home() {
                 <LicensePlanCard index={index} key={plan.name} plan={plan} />
               ))}
             </div>
+            <p className="mt-6 text-sm font-medium text-neutral-500">{vendor.moreNote}</p>
           </div>
         </section>
       ))}

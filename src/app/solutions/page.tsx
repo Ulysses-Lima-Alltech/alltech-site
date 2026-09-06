@@ -81,6 +81,7 @@ export default function SolutionsPage() {
                     <span>
                       <strong className="font-semibold text-brand-black">{vendor.vendor}:</strong>{" "}
                       {vendor.plans.map((plan) => plan.name).join(", ")}
+                      <span className="text-neutral-400"> e muito mais</span>
                     </span>
                   </li>
                 ))}
