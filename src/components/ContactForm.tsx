@@ -6,7 +6,7 @@ import type { FormEvent } from "react";
 import { MagneticButton } from "@/components/MagneticButton";
 import { WHATSAPP_NUMBER } from "@/lib/constants";
 
-const CONTACT_EMAIL = "contato@alltechbr.com.br"; // TROCAR pelo e-mail real
+const CONTACT_EMAIL = "contato@alltechbr.com";
 
 const fieldClassName =
   "min-h-12 w-full rounded-lg border border-neutral-300 bg-white px-4 py-3 text-sm text-brand-black outline-none transition-colors duration-300 placeholder:text-neutral-400 focus:border-brand-blue focus:bg-white focus:ring-4 focus:ring-brand-blue/10";
