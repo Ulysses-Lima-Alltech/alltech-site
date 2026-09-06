@@ -193,29 +193,6 @@ export const projects: Project[] = [
     },
     accent: "cyan",
   },
-  {
-    name: "Facial Detect",
-    slug: "facial-detect",
-    category: "Biometria / Segurança",
-    status: "MVP",
-    summary:
-      "Solução web para reconhecimento facial, liveness detection e validação de presença.",
-    problem:
-      "Sistemas de presença e validação precisam reduzir fraudes e confirmar identidade com segurança.",
-    solution:
-      "Aplicação web com reconhecimento facial, validação de presença e detecção de prova de vida.",
-    features: [
-      "Reconhecimento facial",
-      "Liveness detection",
-      "Validação de presença",
-      "Backend Python",
-      "Frontend web",
-      "Deploy com Docker/Nginx",
-    ],
-    stack: ["Python", "Next.js", "TypeScript", "Docker", "Nginx"],
-    impact: "Validação biométrica mais segura e automatizada.",
-    accent: "blueDark",
-  },
 ];
 
 export const featuredProjects = projects.filter((project) => project.featured);
