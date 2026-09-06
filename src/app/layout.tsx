@@ -9,11 +9,11 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL("https://alltechbr.com.br"),
   title: {
-    default: "Alltech | Soluções digitais sob medida",
+    default: "Alltech | Licenciamento Microsoft 365 e Google Workspace",
     template: "%s | Alltech",
   },
   description:
-    "Portfólio profissional da Alltech com projetos de IA, automação, web, mobile, cloud, visão computacional e RPA.",
+    "Revenda autorizada de licenças Microsoft 365 e Google Workspace, com consultoria, migração e suporte especializado. A Alltech também desenvolve software sob medida.",
   icons: {
     icon: [
       { url: "/icon-16.png", sizes: "16x16", type: "image/png" },
@@ -24,9 +24,9 @@ export const metadata: Metadata = {
     apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
   },
   openGraph: {
-    title: "Alltech | Soluções digitais sob medida",
+    title: "Alltech | Licenciamento Microsoft 365 e Google Workspace",
     description:
-      "Plataformas reais para operação, vendas, gestão, agricultura, educação, atendimento e automação corporativa.",
+      "Revenda autorizada com consultoria, migração e suporte especializado. Também desenvolvemos plataformas e automações sob medida.",
     siteName: "Alltech",
     locale: "pt_BR",
     type: "website",
@@ -42,9 +42,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Alltech | Soluções digitais sob medida",
+    title: "Alltech | Licenciamento Microsoft 365 e Google Workspace",
     description:
-      "Plataformas reais para operação, vendas, gestão, agricultura, educação, atendimento e automação corporativa.",
+      "Revenda autorizada com consultoria, migração e suporte especializado. Também desenvolvemos plataformas e automações sob medida.",
     images: ["/og-image.png"],
   },
 };

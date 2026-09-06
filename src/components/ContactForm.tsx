@@ -4,14 +4,28 @@ import { Mail, MessageCircle } from "lucide-react";
 import type { FormEvent } from "react";
 
 import { MagneticButton } from "@/components/MagneticButton";
+import { WHATSAPP_NUMBER } from "@/lib/constants";
 
-const WHATSAPP_NUMBER = "5511999999999"; // TROCAR pelo número real
 const CONTACT_EMAIL = "contato@alltechbr.com.br"; // TROCAR pelo e-mail real
 
 const fieldClassName =
   "min-h-12 w-full rounded-lg border border-neutral-300 bg-white px-4 py-3 text-sm text-brand-black outline-none transition-colors duration-300 placeholder:text-neutral-400 focus:border-brand-blue focus:bg-white focus:ring-4 focus:ring-brand-blue/10";
 
-export function ContactForm() {
+const projectTypeOptions = [
+  "Licenciamento Microsoft 365 / Google Workspace",
+  "Aplicação web",
+  "Aplicativo mobile",
+  "IA ou automação",
+  "Visão computacional",
+  "Cloud, API ou integração",
+  "Outro",
+];
+
+type ContactFormProps = {
+  defaultProjectType?: string;
+};
+
+export function ContactForm({ defaultProjectType }: ContactFormProps) {
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
@@ -28,7 +42,7 @@ export function ContactForm() {
         `Empresa: ${company || "Não informada"}`,
         `E-mail: ${email}`,
         `WhatsApp: ${whatsapp || "Não informado"}`,
-        `Tipo de projeto: ${projectType}`,
+        `Motivo do contato: ${projectType}`,
         "",
         "Mensagem:",
         message,
@@ -70,17 +84,19 @@ export function ContactForm() {
       </div>
 
       <label className="mt-4 block space-y-2 text-sm font-medium text-neutral-700">
-        Tipo de projeto
-        <select className={fieldClassName} defaultValue="" name="projectType" required>
+        Motivo do contato
+        <select
+          className={fieldClassName}
+          defaultValue={defaultProjectType ?? ""}
+          name="projectType"
+          required
+        >
           <option disabled value="">
             Selecione uma opção
           </option>
-          <option>Aplicação web</option>
-          <option>Aplicativo mobile</option>
-          <option>IA ou automação</option>
-          <option>Visão computacional</option>
-          <option>Cloud, API ou integração</option>
-          <option>Outro</option>
+          {projectTypeOptions.map((option) => (
+            <option key={option}>{option}</option>
+          ))}
         </select>
       </label>
 

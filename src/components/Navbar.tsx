@@ -8,14 +8,19 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 import { cn } from "@/lib/utils";
+import { buildWhatsAppLink } from "@/lib/constants";
 
 const links = [
   { href: "/", label: "Home" },
-  { href: "/projects", label: "Projetos" },
   { href: "/solutions", label: "Soluções" },
+  { href: "/projects", label: "Projetos" },
   { href: "/about", label: "Sobre" },
   { href: "/contact", label: "Contato" },
 ];
+
+const navWhatsAppLink = buildWhatsAppLink(
+  "Olá! Quero saber mais sobre licenciamento Microsoft 365 e Google Workspace.",
+);
 
 export function Navbar() {
   const pathname = usePathname();
@@ -73,14 +78,16 @@ export function Navbar() {
           })}
         </div>
 
-        <Link
+        <a
           className="hidden rounded-lg border border-brand-black bg-brand-black px-4 py-2 text-sm font-semibold text-white shadow-sm transition-colors duration-300 hover:border-brand-blueDark hover:bg-brand-blueDark md:inline-flex"
           data-cursor="hover"
           data-cursor-tone="light"
-          href="/contact"
+          href={navWhatsAppLink}
+          rel="noreferrer"
+          target="_blank"
         >
-          Iniciar projeto
-        </Link>
+          Fale com vendas
+        </a>
 
         <button
           aria-label={menuOpen ? "Fechar menu" : "Abrir menu"}

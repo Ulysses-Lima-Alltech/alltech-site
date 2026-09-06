@@ -3,8 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 
 const footerLinks = [
-  { href: "/projects", label: "Projetos" },
   { href: "/solutions", label: "Soluções" },
+  { href: "/projects", label: "Projetos" },
   { href: "/about", label: "Sobre" },
   { href: "/contact", label: "Contato" },
 ];
@@ -18,12 +18,13 @@ export function Footer() {
             <Image alt="" aria-hidden="true" height={40} src="/logo-mark.svg" width={40} />
             <span>
               <span className="block font-semibold text-white">Alltech</span>
-              <span className="block text-sm text-neutral-400">Engenharia digital sob medida</span>
+              <span className="block text-sm text-neutral-400">Licenciamento e engenharia digital sob medida</span>
             </span>
           </Link>
           <p className="mt-5 max-w-2xl text-sm leading-7 text-neutral-400">
-            Portfólio de plataformas, automações, IA, cloud, web, mobile e visão
-            computacional para operações que precisam virar sistemas reais.
+            Revenda autorizada de licenças Microsoft 365 e Google Workspace, e
+            desenvolvimento de plataformas, automações e IA sob medida para
+            operações reais.
           </p>
         </div>
 

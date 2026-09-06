@@ -90,6 +90,28 @@ export function MagneticButton({
   );
 
   if (href) {
+    const isExternal = href.startsWith("http");
+
+    if (isExternal) {
+      return (
+        <a
+          aria-label={ariaLabel}
+          className="inline-flex max-w-full"
+          data-cursor="hover"
+          data-cursor-tone={variant === "primary" ? "light" : undefined}
+          href={href}
+          onMouseLeave={resetPosition}
+          onMouseMove={handleMouseMove}
+          rel="noreferrer"
+          target="_blank"
+        >
+          <motion.span className={buttonClassName} style={{ x: springX, y: springY }}>
+            {content}
+          </motion.span>
+        </a>
+      );
+    }
+
     return (
       <Link
         aria-label={ariaLabel}

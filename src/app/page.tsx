@@ -1,150 +1,51 @@
 import { Hero } from "@/components/Hero";
+import { LicensePlanCard } from "@/components/LicensePlanCard";
 import { MagneticButton } from "@/components/MagneticButton";
 import { ProjectCard } from "@/components/ProjectCard";
 import { Reveal } from "@/components/Reveal";
 import { SectionHeader } from "@/components/SectionHeader";
-import { SolutionCard, type SolutionIcon } from "@/components/SolutionCard";
+import { licenseVendors, whyAlltech } from "@/data/licensing";
+import { buildWhatsAppLink } from "@/lib/constants";
 import { featuredProjects } from "@/data/projects";
 
-const developmentAreas: Array<{
-  title: string;
-  text: string;
-  icon: SolutionIcon;
-}> = [
-  {
-    title: "Aplicações Web",
-    text: "Plataformas, portais, dashboards e sistemas internos para operações digitais.",
-    icon: "web",
-  },
-  {
-    title: "Aplicativos Mobile",
-    text: "Apps para campo, atendimento, gestão, vendas e produtos digitais.",
-    icon: "mobile",
-  },
-  {
-    title: "Inteligência Artificial",
-    text: "Assistentes, análise, RAG, classificação e automações inteligentes.",
-    icon: "ai",
-  },
-  {
-    title: "Visão Computacional",
-    text: "Análise de imagem e vídeo, reconhecimento e indicadores visuais.",
-    icon: "vision",
-  },
-  {
-    title: "Automações RPA",
-    text: "Robôs para rotinas repetitivas, planilhas, relatórios e sistemas legados.",
-    icon: "rpa",
-  },
-  {
-    title: "Integrações e APIs",
-    text: "Conexões entre sistemas, ERPs, CRMs, WhatsApp, bancos e serviços externos.",
-    icon: "api",
-  },
-  {
-    title: "Cloud AWS",
-    text: "Arquitetura, deploy, containers, bancos, monitoramento e evolução.",
-    icon: "cloud",
-  },
-  {
-    title: "Dashboards e Relatórios",
-    text: "Indicadores executivos e operacionais para decisões mais rápidas.",
-    icon: "dashboard",
-  },
-];
-
-const stack = [
-  "React",
-  "Next.js",
-  "TypeScript",
-  "Node.js",
-  "Python",
-  "PostgreSQL",
-  "AWS",
-  "Docker",
-  "Expo",
-  "React Native",
-  "Tailwind CSS",
-  "OpenCV",
-  "MediaPipe",
-  "YOLO",
-  "Whisper",
-  "Mapbox",
-  "WhatsApp API",
-  "RPA",
-];
-
-const process = [
-  "Diagnóstico",
-  "Arquitetura",
-  "Desenvolvimento",
-  "Integração",
-  "Deploy",
-  "Evolução",
-];
+const salesWhatsAppLink = buildWhatsAppLink(
+  "Olá! Quero saber mais sobre licenciamento Microsoft 365 e Google Workspace.",
+);
 
 export default function Home() {
   return (
     <>
       <Hero />
 
+      {licenseVendors.map((vendor, vendorIndex) => (
+        <section
+          className={vendorIndex % 2 === 0 ? "bg-white px-4 py-20 sm:px-6 lg:px-8" : "bg-brand-soft/70 px-4 py-20 sm:px-6 lg:px-8"}
+          key={vendor.vendor}
+        >
+          <div className="mx-auto max-w-7xl">
+            <SectionHeader description={vendor.description} eyebrow={vendor.eyebrow} title={vendor.title} />
+            <div className="mt-9 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {vendor.plans.map((plan, index) => (
+                <LicensePlanCard index={index} key={plan.name} plan={plan} />
+              ))}
+            </div>
+          </div>
+        </section>
+      ))}
+
       <section className="bg-white px-4 py-20 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
-          <div className="mb-10 flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
-            <SectionHeader
-              description="Cases construídos para operação real, com engenharia, produto e tecnologia trabalhando no mesmo fluxo."
-              eyebrow="Trabalhos selecionados"
-              title="Cases com presença de produto, engenharia e operação."
-            />
-            <MagneticButton href="/projects" variant="secondary">
-              Ver todos
-            </MagneticButton>
-          </div>
-
-          <div className="grid gap-5 md:grid-cols-2">
-            {featuredProjects.map((project, index) => (
-              <ProjectCard index={index} key={project.slug} project={project} />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-brand-soft/70 px-4 py-20 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-7xl">
           <SectionHeader
-            description="Do primeiro diagnóstico ao sistema em produção, criamos soluções sob medida para tecnologia virar operação."
-            eyebrow="Soluções que construímos"
-            title="Web, mobile, IA, automação e cloud no mesmo padrão de entrega."
+            description="Somos revenda autorizada, mas o diferencial é o suporte: escolha do plano, migração e manutenção feitos por quem também constrói sistemas."
+            eyebrow="Por que licenciar com a Alltech"
+            title="Licenciamento com consultoria de verdade, não só nota fiscal."
           />
           <div className="mt-9 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {developmentAreas.map((area, index) => (
-              <SolutionCard
-                icon={area.icon}
-                index={index}
-                key={area.title}
-                text={area.text}
-                title={area.title}
-              />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-white px-4 py-20 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-7xl">
-          <SectionHeader
-            description="Um caminho objetivo para sair de processos manuais e chegar a plataformas operacionais."
-            eyebrow="Como tiramos do papel"
-            title="Da descoberta à evolução contínua."
-          />
-          <div className="mt-10 grid gap-4 md:grid-cols-3 xl:grid-cols-6">
-            {process.map((step, index) => (
-              <Reveal delay={index * 0.05} key={step}>
-                <article className="h-full rounded-lg border border-neutral-200/80 bg-white p-4 shadow-[0_10px_30px_rgba(15,23,42,0.04)]">
-                  <span className="text-sm font-semibold text-brand-blue">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                  <h3 className="mt-4 text-lg font-semibold text-brand-black">{step}</h3>
+            {whyAlltech.map((item, index) => (
+              <Reveal className="h-full" delay={index * 0.04} key={item.title}>
+                <article className="h-full rounded-lg border border-neutral-200/80 bg-white p-4 shadow-[0_10px_30px_rgba(15,23,42,0.04)] md:p-5">
+                  <h3 className="text-lg font-semibold text-brand-black">{item.title}</h3>
+                  <p className="mt-3 text-sm leading-7 text-neutral-600">{item.text}</p>
                 </article>
               </Reveal>
             ))}
@@ -152,47 +53,47 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-brand-soft/70 px-4 py-20 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-7xl">
-          <Reveal>
-            <div className="rounded-lg border border-neutral-200/80 bg-white p-5 shadow-[0_12px_36px_rgba(15,23,42,0.05)] md:p-7">
-              <SectionHeader
-                description="Ferramentas modernas para construir produtos rápidos, escaláveis, integráveis e prontos para evolução."
-                eyebrow="Stack"
-                title="Tecnologias usadas para entregar sistemas reais."
-              />
-              <div className="mt-7 flex flex-wrap gap-2">
-                {stack.map((item) => (
-                  <span
-                    className="rounded-full border border-neutral-200 bg-neutral-50 px-2.5 py-1.5 text-sm font-medium text-neutral-700"
-                    key={item}
-                  >
-                    {item}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
-      <section className="bg-white px-4 py-24 sm:px-6 lg:px-8">
+      <section className="bg-brand-soft/70 px-4 py-24 sm:px-6 lg:px-8">
         <Reveal>
           <div className="mx-auto max-w-5xl rounded-lg border border-neutral-200/80 bg-white p-6 text-center shadow-[0_14px_40px_rgba(15,23,42,0.06)] md:p-8">
             <h2 className="text-3xl font-semibold leading-tight text-brand-black md:text-5xl">
-              Tem uma operação que precisa virar sistema?
+              Pronto para organizar as licenças da sua empresa?
             </h2>
             <p className="mx-auto mt-5 max-w-3xl text-base leading-8 text-neutral-600 md:text-lg">
-              Transformamos processos manuais, planilhas e ideias em plataformas
-              digitais reais, escaláveis e prontas para operação.
+              Fale com a gente e receba uma recomendação de plano Microsoft 365
+              ou Google Workspace sob medida para o seu time.
             </p>
-            <div className="mt-8">
-              <MagneticButton href="/contact" size="lg">
-                Começar conversa
+            <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+              <MagneticButton href={salesWhatsAppLink} icon="message" size="lg">
+                Falar com vendas
+              </MagneticButton>
+              <MagneticButton href="/contact?motivo=licenciamento" size="lg" variant="secondary">
+                Solicitar orçamento
               </MagneticButton>
             </div>
           </div>
         </Reveal>
+      </section>
+
+      <section className="bg-white px-4 py-20 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-10 flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
+            <SectionHeader
+              description="Além do licenciamento, a Alltech também constrói plataformas, automações e IA sob medida para operações reais."
+              eyebrow="Também fazemos sistemas sob medida"
+              title="Precisa de mais do que licenças? Também desenvolvemos software."
+            />
+            <MagneticButton href="/projects" variant="secondary">
+              Ver projetos
+            </MagneticButton>
+          </div>
+
+          <div className="grid gap-5 md:grid-cols-2">
+            {featuredProjects.slice(0, 2).map((project, index) => (
+              <ProjectCard index={index} key={project.slug} project={project} />
+            ))}
+          </div>
+        </div>
       </section>
     </>
   );

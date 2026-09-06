@@ -5,6 +5,11 @@ import { motion } from "framer-motion";
 import { AlltechBrandJourney } from "@/components/AlltechBrandJourney";
 import { AnimatedLogo } from "@/components/AnimatedLogo";
 import { MagneticButton } from "@/components/MagneticButton";
+import { buildWhatsAppLink } from "@/lib/constants";
+
+const heroWhatsAppLink = buildWhatsAppLink(
+  "Olá! Quero saber mais sobre licenciamento Microsoft 365 e Google Workspace.",
+);
 
 const finalRevealDuration = 0.85;
 const finalRevealEase = [0.22, 1, 0.36, 1] as const;
@@ -58,21 +63,22 @@ export function Hero() {
                   transition={finalTransition}
                 >
                   <h1 className="hero-title max-w-[900px] font-semibold text-brand-black">
-                    <span>Da plataforma pronta ao projeto sob medida </span>
-                    <span className="text-brand-blue">automação e IA reais.</span>
+                    <span>Licenciamento oficial </span>
+                    <span className="text-brand-blue">Microsoft 365 e Google Workspace.</span>
                   </h1>
 
                   <p className="hero-subtitle max-w-[680px] text-base leading-8 text-neutral-600 md:text-lg md:leading-8">
-                    Da implantação imediata ao desenvolvimento sob medida, entregamos
-                    tecnologia adequada ao momento e à necessidade de cada cliente.
+                    Revenda autorizada com consultoria especializada: escolha o
+                    plano certo, migre sem parar a operação e conte com suporte
+                    contínuo — sem contas soltas nem recursos que você não usa.
                   </p>
 
                   <div className="hero-actions flex flex-col gap-3 sm:flex-row">
-                    <MagneticButton href="/projects" size="lg">
-                      Ver projetos
+                    <MagneticButton href={heroWhatsAppLink} icon="message" size="lg">
+                      Falar com vendas
                     </MagneticButton>
-                    <MagneticButton href="/contact" size="lg" variant="secondary">
-                      Falar sobre um projeto
+                    <MagneticButton href="/contact?motivo=licenciamento" size="lg" variant="secondary">
+                      Solicitar orçamento
                     </MagneticButton>
                   </div>
                 </motion.div>
