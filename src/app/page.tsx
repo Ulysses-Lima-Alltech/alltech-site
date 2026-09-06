@@ -6,7 +6,11 @@ import { Reveal } from "@/components/Reveal";
 import { SectionHeader } from "@/components/SectionHeader";
 import { licenseVendors, whyAlltech } from "@/data/licensing";
 import { buildWhatsAppLink } from "@/lib/constants";
-import { featuredProjects } from "@/data/projects";
+import { getProjectBySlug } from "@/data/projects";
+
+const homeProjects = ["shomer", "icontrol"]
+  .map((slug) => getProjectBySlug(slug))
+  .filter((project) => project !== undefined);
 
 const salesWhatsAppLink = buildWhatsAppLink(
   "Olá! Quero saber mais sobre licenciamento Microsoft 365 e Google Workspace.",
@@ -90,7 +94,7 @@ export default function Home() {
           </div>
 
           <div className="grid gap-5 md:grid-cols-2">
-            {featuredProjects.slice(0, 2).map((project, index) => (
+            {homeProjects.map((project, index) => (
               <ProjectCard index={index} key={project.slug} project={project} />
             ))}
           </div>
