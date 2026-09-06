@@ -20,6 +20,7 @@ export default function Home() {
       {licenseVendors.map((vendor, vendorIndex) => (
         <section
           className={vendorIndex % 2 === 0 ? "bg-white px-4 py-20 sm:px-6 lg:px-8" : "bg-brand-soft/70 px-4 py-20 sm:px-6 lg:px-8"}
+          id={vendorIndex === 0 ? "licenciamento" : undefined}
           key={vendor.vendor}
         >
           <div className="mx-auto max-w-7xl">
